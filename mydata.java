@@ -1,0 +1,28 @@
+import java.sql.*;
+class mydata 
+{
+	public static void main(String[] args) 
+	{
+		try
+		{
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/test","root","root");
+			PreparedStatement ps=con.prepareStatement("insert into mydata values(?,?,?)");
+            ps.setInt(1,38);
+			ps.setString(2,"Priyesh Singh");
+            ps.setString(3,"MCA");
+
+          int n =ps.executeUpdate();
+		  System.out.println(n+"Recods Updated Succesfully");
+          con.close();
+		}
+		catch(Exception e)
+		{
+			System.out.println(e);
+		}
+
+
+
+
+	}
+}

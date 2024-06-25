@@ -1,0 +1,20 @@
+import java.sql.*;
+class  DelStud
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("Hello World!");
+       try{
+			  Class.forName("com.mysql.jdbc.Driver") ;
+				
+              Connection con= DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "root","root");
+				
+				PreparedStatement ts1=con.prepareStatement("delete from student where rollno=? ");
+               
+				 ts1.setInt(1, 5);
+				 int n=ts1.executeUpdate();
+				System.out.println(n+" Records Deleted Successfully!");
+		  con.close();
+           }catch(Exception e){System.out.print(e);}
+	}
+}
